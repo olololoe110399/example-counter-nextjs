@@ -1,13 +1,16 @@
-import Link from 'next/link'
-import Layout from '../components/Layout'
+import { useRouter } from "next/router";
 
-const IndexPage = () => (
-  <Layout title="Home | Next.js + TypeScript Example">
-    <h1>Hello Next.js 👋</h1>
-    <p>
-      <Link href="/about">About</Link>
-    </p>
-  </Layout>
-)
+export default function Home() {
+  const router = useRouter();
 
-export default IndexPage
+  const handleGoToCounter = () => {
+    router.push("/counter");
+  };
+
+  return (
+    <div>
+      <h1>Hello Next.js!</h1>
+      <button onClick={handleGoToCounter}>Go to counter</button>
+    </div>
+  );
+}
